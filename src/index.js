@@ -59,13 +59,6 @@ export default function typescript ( options ) {
 	}
 
 	const parsed = typescript.convertCompilerOptionsFromJson( options, process.cwd() );
-
-	if ( parsed.errors.length ) {
-		parsed.errors.forEach( error => console.error( `rollup-plugin-typescript: ${ error.messageText }` ) );
-
-		throw new Error( `rollup-plugin-typescript: Couldn't process compiler options` );
-	}
-
 	const compilerOptions = parsed.options;
 
 	return {
